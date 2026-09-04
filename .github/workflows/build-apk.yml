@@ -1,4 +1,4 @@
-name: Papillon
+name: Build Papillon APK
 on:
   workflow_dispatch:
 jobs:
@@ -15,6 +15,9 @@ jobs:
           
       - name: Installer les dépendances
         run: npm install
+        
+      - name: Générer le code natif (Prebuild)
+        run: npx expo prebuild --platform android
         
       - name: Configurer Java (JDK)
         uses: actions/setup-java@v4
